@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Authcontext } from './Authcontext';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase.config';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const {c} = useContext(Authcontext);
 
@@ -12,6 +16,16 @@ const Login = () => {
         e.preventDefault();
         // Firebase login logic ekhane add korben
         console.log('Email:', email, 'Password:', password);
+
+        signInWithEmailAndPassword(auth,email,password).then((userinfo)=>{
+            console.log("successfully logged in");
+            navigate("/");
+        })
+        .catch((error)=>{
+            const errorCode = error.code;
+           const errorMessage = error.message;
+           console.error("Sign-in error:", errorMessage);
+        })
     };
 
     const handleGoogleSignIn = () => {
@@ -38,6 +52,7 @@ const Login = () => {
                         <input
                             type="email"
                             id="email"
+                            
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
@@ -54,6 +69,7 @@ const Login = () => {
                         <input
                             type="password"
                             id="password"
+                           
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition"
