@@ -1,0 +1,216 @@
+[
+  {
+    "id": 1,
+    "title": "React Basics",
+    "description": "Learn React from scratch with simple examples.",
+    "instructor": "Mokbul Hasan",
+    "duration": "5 hours",
+    "lessonsCount": 3,
+    "enrolled": false,
+    "price": 49,
+    "image": "https://i.ibb.co/pXqjH3v/react-basics.jpg",
+
+    "learning": [
+      "Understand React fundamentals",
+      "Create components",
+      "Use props and state"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "Introduction to React",
+        "lessons": [
+          { "id": "l1", "title": "What is React?", "videoId": "dGcsHMXbSOA" },
+          { "id": "l2", "title": "Why React?", "videoId": "N3AkSS5hXMA" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Core Concepts",
+        "lessons": [
+          { "id": "l3", "title": "Components & JSX", "videoId": "Ke90Tje7VS0" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "title": "Firebase Auth",
+    "description": "Authentication system with Firebase.",
+    "instructor": "Anika Rahman",
+    "duration": "2 hours",
+    "lessonsCount": 2,
+    "enrolled": true,
+    "price": 39,
+    "image": "https://i.ibb.co/9vKqN2L/firebase-auth.jpg",
+
+    "learning": [
+      "Firebase authentication flow",
+      "Email & password login",
+      "Auth state management"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "Firebase Basics",
+        "lessons": [
+          { "id": "l1", "title": "What is Firebase?", "videoId": "9kRgVxULbag" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Authentication",
+        "lessons": [
+          { "id": "l2", "title": "Email & Password Auth", "videoId": "PKwu15ldZ7k" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "JavaScript Fundamentals",
+    "description": "JS basics for modern web development.",
+    "instructor": "Rifat Hossain",
+    "duration": "4 hours",
+    "lessonsCount": 4,
+    "enrolled": false,
+    "price": 45,
+    "image": "https://i.ibb.co/7XmKfJw/javascript-fundamentals.jpg",
+
+    "learning": [
+      "Variables & data types",
+      "Functions",
+      "Loops & conditions"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "JavaScript Basics",
+        "lessons": [
+          { "id": "l1", "title": "Variables & Types", "videoId": "W6NZfCO5SIk" },
+          { "id": "l2", "title": "Functions", "videoId": "N8ap4k_1QEQ" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Logic Building",
+        "lessons": [
+          { "id": "l3", "title": "Loops", "videoId": "s9wW2PpJsmQ" },
+          { "id": "l4", "title": "Conditions", "videoId": "IsG4Xd6LlsM" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "title": "Node.js Intro",
+    "description": "Backend development with Node.js.",
+    "instructor": "Tania Islam",
+    "duration": "3 hours",
+    "lessonsCount": 3,
+    "enrolled": false,
+    "price": 42,
+    "image": "https://i.ibb.co/8dTyH5R/nodejs-intro.jpg",
+
+    "learning": [
+      "Node.js fundamentals",
+      "Server concepts",
+      "Basic API creation"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "Node Basics",
+        "lessons": [
+          { "id": "l1", "title": "What is Node.js?", "videoId": "TlB_eWDSMt4" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Backend Concepts",
+        "lessons": [
+          { "id": "l2", "title": "Server & Runtime", "videoId": "Oe421EPjeBE" },
+          { "id": "l3", "title": "Simple API", "videoId": "pKd0Rpw7O48" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "title": "React Router",
+    "description": "Navigation and routing in React apps.",
+    "instructor": "Sabbir Ahmed",
+    "duration": "2 hours",
+    "lessonsCount": 2,
+    "enrolled": true,
+    "price": 29,
+    "image": "https://i.ibb.co/4PqW9Ls/react-router.jpg",
+
+    "learning": [
+      "Routing basics",
+      "Dynamic routes",
+      "Private routes"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "Routing Basics",
+        "lessons": [
+          { "id": "l1", "title": "Intro to React Router", "videoId": "59IXY5IDrBA" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Advanced Routing",
+        "lessons": [
+          { "id": "l2", "title": "Private Routes", "videoId": "B7txcZzLrg4" }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 6,
+    "title": "Redux Basics",
+    "description": "State management with Redux.",
+    "instructor": "Fahim Chowdhury",
+    "duration": "3 hours",
+    "lessonsCount": 3,
+    "enrolled": false,
+    "price": 44,
+    "image": "https://i.ibb.co/Bj2Vx8M/redux-basics.jpg",
+
+    "learning": [
+      "Redux fundamentals",
+      "Store, actions, reducers",
+      "State management flow"
+    ],
+
+    "chapters": [
+      {
+        "id": "c1",
+        "title": "Redux Core",
+        "lessons": [
+          { "id": "l1", "title": "What is Redux?", "videoId": "poQXNp9ItL4" }
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "Redux Workflow",
+        "lessons": [
+          { "id": "l2", "title": "Actions & Reducers", "videoId": "CVpUuw9XSjY" },
+          { "id": "l3", "title": "Redux Store", "videoId": "93p3LxR9xfM" }
+        ]
+      }
+    ]
+  }
+]

@@ -9,6 +9,9 @@ import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Signup from './Signup.jsx';
 import Authprovider from './Authprovider.jsx';
+import Courses from './Courses.jsx';
+import Coursedetails from './Coursedetails.jsx';
+import PrivateRoute from './Route/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -27,6 +30,16 @@ const router = createBrowserRouter([
       {
         path:"/signup",
         Component: Signup,
+      },
+      {
+        path:"/courses",
+        Component: Courses,
+      },
+      {
+        path:"/coursedetails/:id",
+        element:<PrivateRoute>
+          <Coursedetails></Coursedetails>
+        </PrivateRoute>
       }
       
     ]

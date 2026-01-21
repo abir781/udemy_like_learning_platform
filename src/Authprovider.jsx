@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Authcontext } from './Authcontext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase.config';
 
 
 const Authprovider = ({children}) => {
-    const c=54;
+    
+    const [user, setUser] = useState(null);
+    const [loading, setloading] = useState(true);
 
     useEffect(()=>{
        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
-      console.log("it's just me and no one is allowed here", currentUser);
+        setUser(currentUser);
+        setloading(false);
+
        
     })
     return ()=>{
@@ -19,7 +23,7 @@ const Authprovider = ({children}) => {
     },[])
    
     return (
-       <Authcontext.Provider value={{c}}>
+       <Authcontext.Provider value={{user, loading,setloading}}>
          {children}
        </Authcontext.Provider>
       
