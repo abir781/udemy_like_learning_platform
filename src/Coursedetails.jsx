@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 const Coursedetails = () => {
   const { id } = useParams();
@@ -66,6 +66,23 @@ const Coursedetails = () => {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+         
+           
+             {course.chapters?.length > 0 && (
+  <div>
+    <Link to={`coursedetails/${id}/chapter/${course.chapters[0].id}`}>
+      Go to lesson
+    </Link>
+  </div>
+)}
+           
+           
+
+      
+          {/* <Link to={`/course/lesson/${.id}`} className="font-bold text-red-500">Lessons</Link> */}
         </div>
       </div>
 

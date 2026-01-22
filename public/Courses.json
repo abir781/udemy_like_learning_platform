@@ -9,27 +9,37 @@
     "enrolled": false,
     "price": 49,
     "image": "https://i.ibb.co/pXqjH3v/react-basics.jpg",
-
     "learning": [
       "Understand React fundamentals",
       "Create components",
       "Use props and state"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "Introduction to React",
         "lessons": [
-          { "id": "l1", "title": "What is React?", "videoId": "dGcsHMXbSOA" },
-          { "id": "l2", "title": "Why React?", "videoId": "N3AkSS5hXMA" }
+          {
+            "id": "l1",
+            "title": "What is React?",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          },
+          {
+            "id": "l2",
+            "title": "Why React?",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Core Concepts",
         "lessons": [
-          { "id": "l3", "title": "Components & JSX", "videoId": "Ke90Tje7VS0" }
+          {
+            "id": "l3",
+            "title": "Components & JSX",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          }
         ]
       }
     ]
@@ -45,26 +55,32 @@
     "enrolled": true,
     "price": 39,
     "image": "https://i.ibb.co/9vKqN2L/firebase-auth.jpg",
-
     "learning": [
       "Firebase authentication flow",
       "Email & password login",
       "Auth state management"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "Firebase Basics",
         "lessons": [
-          { "id": "l1", "title": "What is Firebase?", "videoId": "9kRgVxULbag" }
+          {
+            "id": "l1",
+            "title": "What is Firebase?",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Authentication",
         "lessons": [
-          { "id": "l2", "title": "Email & Password Auth", "videoId": "PKwu15ldZ7k" }
+          {
+            "id": "l2",
+            "title": "Email & Password Auth",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          }
         ]
       }
     ]
@@ -80,28 +96,42 @@
     "enrolled": false,
     "price": 45,
     "image": "https://i.ibb.co/7XmKfJw/javascript-fundamentals.jpg",
-
     "learning": [
       "Variables & data types",
       "Functions",
       "Loops & conditions"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "JavaScript Basics",
         "lessons": [
-          { "id": "l1", "title": "Variables & Types", "videoId": "W6NZfCO5SIk" },
-          { "id": "l2", "title": "Functions", "videoId": "N8ap4k_1QEQ" }
+          {
+            "id": "l1",
+            "title": "Variables & Types",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          },
+          {
+            "id": "l2",
+            "title": "Functions",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Logic Building",
         "lessons": [
-          { "id": "l3", "title": "Loops", "videoId": "s9wW2PpJsmQ" },
-          { "id": "l4", "title": "Conditions", "videoId": "IsG4Xd6LlsM" }
+          {
+            "id": "l3",
+            "title": "Loops",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          },
+          {
+            "id": "l4",
+            "title": "Conditions",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       }
     ]
@@ -117,27 +147,37 @@
     "enrolled": false,
     "price": 42,
     "image": "https://i.ibb.co/8dTyH5R/nodejs-intro.jpg",
-
     "learning": [
       "Node.js fundamentals",
       "Server concepts",
       "Basic API creation"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "Node Basics",
         "lessons": [
-          { "id": "l1", "title": "What is Node.js?", "videoId": "TlB_eWDSMt4" }
+          {
+            "id": "l1",
+            "title": "What is Node.js?",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Backend Concepts",
         "lessons": [
-          { "id": "l2", "title": "Server & Runtime", "videoId": "Oe421EPjeBE" },
-          { "id": "l3", "title": "Simple API", "videoId": "pKd0Rpw7O48" }
+          {
+            "id": "l2",
+            "title": "Server & Runtime",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          },
+          {
+            "id": "l3",
+            "title": "Simple API",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       }
     ]
@@ -153,26 +193,32 @@
     "enrolled": true,
     "price": 29,
     "image": "https://i.ibb.co/4PqW9Ls/react-router.jpg",
-
     "learning": [
       "Routing basics",
       "Dynamic routes",
       "Private routes"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "Routing Basics",
         "lessons": [
-          { "id": "l1", "title": "Intro to React Router", "videoId": "59IXY5IDrBA" }
+          {
+            "id": "l1",
+            "title": "Intro to React Router",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Advanced Routing",
         "lessons": [
-          { "id": "l2", "title": "Private Routes", "videoId": "B7txcZzLrg4" }
+          {
+            "id": "l2",
+            "title": "Private Routes",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          }
         ]
       }
     ]
@@ -188,27 +234,37 @@
     "enrolled": false,
     "price": 44,
     "image": "https://i.ibb.co/Bj2Vx8M/redux-basics.jpg",
-
     "learning": [
       "Redux fundamentals",
       "Store, actions, reducers",
       "State management flow"
     ],
-
     "chapters": [
       {
         "id": "c1",
         "title": "Redux Core",
         "lessons": [
-          { "id": "l1", "title": "What is Redux?", "videoId": "poQXNp9ItL4" }
+          {
+            "id": "l1",
+            "title": "What is Redux?",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          }
         ]
       },
       {
         "id": "c2",
         "title": "Redux Workflow",
         "lessons": [
-          { "id": "l2", "title": "Actions & Reducers", "videoId": "CVpUuw9XSjY" },
-          { "id": "l3", "title": "Redux Store", "videoId": "93p3LxR9xfM" }
+          {
+            "id": "l2",
+            "title": "Actions & Reducers",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045442/demo_purpose_2_u5xe8v.mp4"
+          },
+          {
+            "id": "l3",
+            "title": "Redux Store",
+            "videoUrl": "https://res.cloudinary.com/drrthis4q/video/upload/v1769045438/demo_purpose_xqtk7q.mp4"
+          }
         ]
       }
     ]

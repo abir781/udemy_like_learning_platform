@@ -40,6 +40,13 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <Coursedetails></Coursedetails>
         </PrivateRoute>
+      },
+      {
+         path:"/coursedetails/:id/chapter/:cid",
+        element:<PrivateRoute>
+          <Coursedetails></Coursedetails>
+        </PrivateRoute>
+
       }
       
     ]
