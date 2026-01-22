@@ -1,9 +1,16 @@
 import React from 'react';
+import HeroSection from './HeroSection';
+import WhyChooseUs from './WhyChooseUs';
+import LearningPath from './LearningPath';
+import InstructorSection from './InstructorSection';
 
 const Home = () => {
     return (
         <div>
-            <p>homepage is huge like ocean</p>
+           <HeroSection></HeroSection>
+           <WhyChooseUs></WhyChooseUs>
+           <LearningPath></LearningPath>
+           <InstructorSection></InstructorSection>
             
         </div>
     );
