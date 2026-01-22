@@ -73,7 +73,7 @@ const Coursedetails = () => {
            
              {course.chapters?.length > 0 && (
   <div>
-    <Link to={`coursedetails/${id}/chapter/${course.chapters[0].id}`}>
+    <Link to={`/coursedetails/${id}/chapter/${course.chapters[0].id}`}>
       Go to lesson
     </Link>
   </div>

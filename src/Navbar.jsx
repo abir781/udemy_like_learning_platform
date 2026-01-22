@@ -14,8 +14,10 @@ const Navbar = () => {
   }
   console.log(user);
   return (
-    <nav className="bg-[#1a3631] shadow-md px-6 py-4 flex justify-between items-center">
+    <nav className="bg-[#1a3631] shadow-md px-20 py-4 flex justify-between items-center">
       {/* Logo / Brand */}
+
+     
       <div className="text-2xl font-bold text-white">
         MyApp
       </div>

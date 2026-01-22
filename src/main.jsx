@@ -12,6 +12,7 @@ import Authprovider from './Authprovider.jsx';
 import Courses from './Courses.jsx';
 import Coursedetails from './Coursedetails.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
+import Chapter from './Chapter.jsx';
 
 
 const router = createBrowserRouter([
@@ -44,10 +45,11 @@ const router = createBrowserRouter([
       {
          path:"/coursedetails/:id/chapter/:cid",
         element:<PrivateRoute>
-          <Coursedetails></Coursedetails>
+          <Chapter></Chapter>
         </PrivateRoute>
 
-      }
+      },
+     
       
     ]
   },
