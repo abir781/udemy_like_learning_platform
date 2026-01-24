@@ -101,20 +101,20 @@ const Chapter = () => {
     const [ind, setind] = useState(0);
 
     useEffect(() => {
-        fetch("/Courses.json")
+        fetch(`http://localhost:3000/course/${id}`)
           .then((res) => res.json())
           .then((data) => {
-            const singleCourse = data.find((c) => c.id == id);
-            setCourse(singleCourse);
+           
+            setCourse(data);
 
-            if(singleCourse?.chapters?.length){
-                const desiredchapter = singleCourse.chapters.find(cch => cch.id == cid);
+            if(data?.chapters?.length){
+                const desiredchapter = data.chapters.find(cch => cch.id == cid);
                 
                 if(desiredchapter) {
                     setchapter(desiredchapter);
                     setind(0); // নতুন chapter এ গেলে প্রথম lesson এ reset করুন
                 } else {
-                    setchapter(singleCourse.chapters[0]);
+                    setchapter(data.chapters[0]);
                     setind(0);
                 }
             }
@@ -159,7 +159,7 @@ const Chapter = () => {
                     {courses.chapters?.map((chapter) => (
                         <Link 
                             key={chapter.id}
-                            to={`/coursedetails/${courses.id}/chapter/${chapter.id}`}
+                            to={`/coursedetails/${courses._id}/chapter/${chapter.id}`}
                             className={`font-bold px-4 py-2 rounded ${chapter.id === selectedchapter.id ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
                         >
                             {chapter.title}

@@ -6,11 +6,13 @@ const Coursedetails = () => {
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    fetch("/Courses.json")
+    fetch(`http://localhost:3000/course/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        const singleCourse = data.find((c) => c.id == id);
-        setCourse(singleCourse);
+
+        console.log(data);
+        
+        setCourse(data);
       });
   }, [id]);
 
