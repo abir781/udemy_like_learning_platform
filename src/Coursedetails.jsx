@@ -1,9 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
+import { Authcontext } from "./Authcontext";
 
 const Coursedetails = () => {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
+
+  const {useremail}= useContext(Authcontext);
+  console.log(useremail);
+
+  const handleRoleChange = async () => {
+    if (!useremail) return alert("Login first");
+
+    try {
+      const res = await fetch("http://localhost:3000/users/role", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: useremail,  // context থেকে email pathano hocche
+          role: "student"    // যেকোনো role pathate paro
+        })
+      });
+
+      const data = await res.json();
+      console.log(data);
+      alert(data.message);
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
+    }
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3000/course/${id}`)
@@ -78,7 +104,11 @@ const Coursedetails = () => {
     <Link to={`/coursedetails/${id}/chapter/${course.chapters[0].id}`}>
       Go to lesson
     </Link>
+    <div>
+      <button className="bg-black px-4 py-2 text-white cursor-pointer mt-3" onClick={handleRoleChange}>change role to student</button>
+    </div>
   </div>
+  
 )}
            
            

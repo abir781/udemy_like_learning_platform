@@ -8,6 +8,9 @@ const Authprovider = ({children}) => {
     
     const [user, setUser] = useState(null);
     const [loading, setloading] = useState(true);
+    const [useremail, setuseremail] = useState(null);
+
+     console.log(useremail);
 
     useEffect(()=>{
        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
@@ -23,7 +26,7 @@ const Authprovider = ({children}) => {
     },[])
    
     return (
-       <Authcontext.Provider value={{user, loading,setloading}}>
+       <Authcontext.Provider value={{user, loading,setloading, useremail,setuseremail}}>
          {children}
        </Authcontext.Provider>
       

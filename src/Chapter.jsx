@@ -127,7 +127,8 @@ const Chapter = () => {
 
     return (
         <div className='max-w-11/12 mx-auto'>
-            <div className='mt-10'>
+            <div className='flex gap-10'>
+                      <div className='mt-10'>
                 <video 
                     key={`${selectedchapter.id}-${ind}`} // এই key টি যোগ করুন
                     controls 
@@ -137,15 +138,20 @@ const Chapter = () => {
                     <source src={selectedchapter.lessons[ind].videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
+
+                <h2 className='text-2xl font-bold mt-4 ml-5'>{selectedchapter.title}</h2>
             </div>
 
-            <h2 className='text-2xl font-bold mt-4 ml-5'>{selectedchapter.title}</h2>
+            
 
-            <div className='inline-block ml-5 mt-6'>
+            <div className='mt-10'>
+
+                 <div className='flex flex-col gap-4 ml-5 mt-6'>
+                    <h3 className='text-xl font-semibold mb-3'>Lessons:</h3>
                 {selectedchapter.lessons?.map((lesson, index) => (
                     <button 
                         key={lesson.id}
-                        className='bg-amber-400 text-white font-bold px-4 py-2 ml-3 cursor-pointer hover:bg-amber-500'
+                        className=' text-orange-600 font-bold  cursor-pointer hover:bg-amber-500'
                         onClick={() => setind(index)}
                     >
                         {lesson.title}
@@ -155,18 +161,25 @@ const Chapter = () => {
 
             <div className='mt-8 ml-5'>
                 <h3 className='text-xl font-semibold mb-3'>All Chapters:</h3>
-                <div className='flex flex-wrap gap-3'>
+                <div className='flex flex-col gap-3'>
                     {courses.chapters?.map((chapter) => (
                         <Link 
                             key={chapter.id}
                             to={`/coursedetails/${courses._id}/chapter/${chapter.id}`}
-                            className={`font-bold px-4 py-2 rounded ${chapter.id === selectedchapter.id ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+                            className={`font-bold px-3 py-2 rounded ${chapter.id === selectedchapter.id ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
                         >
                             {chapter.title}
                         </Link>
                     ))}
                 </div>
             </div>
+
+            </div>
+
+            </div>
+         
+
+           
         </div>
     );
 };

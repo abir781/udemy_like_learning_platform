@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { Authcontext } from './Authcontext';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from './firebase.config';
+import { googleprovider } from './firebase.config';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -11,6 +12,10 @@ const Login = () => {
     const navigate = useNavigate();
 
     const {c} = useContext(Authcontext);
+    const {useremail}=useContext(Authcontext);
+    const {setuseremail} = useContext(Authcontext);
+
+   
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -19,6 +24,7 @@ const Login = () => {
 
         signInWithEmailAndPassword(auth,email,password).then((userinfo)=>{
             console.log("successfully logged in");
+            setuseremail(email);
             navigate("/");
         })
         .catch((error)=>{
@@ -31,6 +37,14 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         // Google sign in logic ekhane add korben
         console.log('Google Sign In clicked');
+        signInWithPopup(auth,googleprovider)
+           .then((result)=>{
+              const user=result.user;
+              console.log(user);
+           })
+           .catch((error) => {
+      console.error("Error:", error.code, error.message);
+    });
     };
 
     return (
