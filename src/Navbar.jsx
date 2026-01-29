@@ -40,6 +40,17 @@ const Navbar = () => {
       >
         Courses
       </Link>
+
+    </li>
+
+     <li>
+      <Link 
+        to="/coursecreate" 
+        className="text-white hover:text-emerald-300 font-semibold text-lg transition"
+      >
+        Coursecreate
+      </Link>
+      
     </li>
   </ul>
 </div>

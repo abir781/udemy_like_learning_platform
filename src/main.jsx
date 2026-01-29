@@ -13,6 +13,7 @@ import Courses from './Courses.jsx';
 import Coursedetails from './Coursedetails.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
 import Chapter from './Chapter.jsx';
+import Coursecreate from './Coursecreate.jsx';
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,13 @@ const router = createBrowserRouter([
          path:"/coursedetails/:id/chapter/:cid",
         element:<PrivateRoute>
           <Chapter></Chapter>
+        </PrivateRoute>
+
+      },
+        {
+         path:"/coursecreate",
+        element:<PrivateRoute>
+          <Coursecreate></Coursecreate>
         </PrivateRoute>
 
       },
