@@ -14,6 +14,8 @@ import Coursedetails from './Coursedetails.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
 import Chapter from './Chapter.jsx';
 import Coursecreate from './Coursecreate.jsx';
+import TeacherRoute from './Teacherroute.jsx';
+import Unauthorized from './Unauthorized.jsx';
 
 
 const router = createBrowserRouter([
@@ -53,11 +55,19 @@ const router = createBrowserRouter([
         {
          path:"/coursecreate",
         element:<PrivateRoute>
-          <Coursecreate></Coursecreate>
+          <TeacherRoute>
+              <Coursecreate></Coursecreate>
+
+          </TeacherRoute>
+          
         </PrivateRoute>
 
       },
-     
+      {
+        path:"/unauthorized",
+        Component: Unauthorized,
+      }
+    
       
     ]
   },

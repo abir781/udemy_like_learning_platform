@@ -105,7 +105,7 @@ const Coursedetails = () => {
       Go to lesson
     </Link>
     <div>
-      <button className="bg-black px-4 py-2 text-white cursor-pointer mt-3" onClick={handleRoleChange}>change role to student</button>
+      <button className="bg-black px-4 py-2 text-white cursor-pointer mt-3" onClick={handleRoleChange}>Purchase</button>
     </div>
   </div>
   

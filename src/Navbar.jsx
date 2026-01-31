@@ -6,7 +6,9 @@ import { auth } from "./firebase.config";
 
 
 const Navbar = () => {
-  const {user, loading, setloading} = use(Authcontext);
+  const {user, loading, setloading,role} = use(Authcontext);
+
+  console.log(role);
 
   const makeLogout=()=>{
      setloading(true);
@@ -43,13 +45,14 @@ const Navbar = () => {
 
     </li>
 
+     {role === "teacher" && (
+        <Link 
+        to="/coursecreate"
+         className="text-white hover:text-emerald-300 font-semibold text-lg transition"
+        >Teacher Dashboard</Link>
+      )}
      <li>
-      <Link 
-        to="/coursecreate" 
-        className="text-white hover:text-emerald-300 font-semibold text-lg transition"
-      >
-        Coursecreate
-      </Link>
+      
       
     </li>
   </ul>
