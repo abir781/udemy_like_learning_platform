@@ -1,11 +1,17 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
+
+
+const stripepromise = loadStripe('')
 
 const Payment = () => {
     return (
-        <div>
-            <p>taka o taka</p>
-            
-        </div>
+       <Elements stripe={stripepromise}>
+
+              <Paymentform />
+
+       </Elements>
     );
 };
 
