@@ -16,6 +16,7 @@ import Chapter from './Chapter.jsx';
 import Coursecreate from './Coursecreate.jsx';
 import TeacherRoute from './Teacherroute.jsx';
 import Unauthorized from './Unauthorized.jsx';
+import Payment from './Payment.jsx';
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path:"/unauthorized",
         Component: Unauthorized,
+      },
+      {
+        path:'payment/:id',
+        Component: Payment
       }
     
       
