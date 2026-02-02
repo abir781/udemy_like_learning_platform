@@ -11,7 +11,7 @@ const Coursedetails = () => {
   const {useremail}= useContext(Authcontext);
   console.log(useremail);
 
-  const handlepurchase = async (id) => {
+  const handlepurchase = async (id,price) => {
     // if (!useremail) return alert("Login first");
 
     // try {
@@ -32,8 +32,8 @@ const Coursedetails = () => {
     //   alert("Something went wrong");
     // }
 
-    console.log(id);
-    navigate(`/payment/${id}`)
+    console.log(id,price);
+    navigate(`/payment/${id}?price=${price}`);
   };
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const Coursedetails = () => {
       Go to lesson
     </Link>
     <div>
-      <button className="bg-black px-4 py-2 text-white cursor-pointer mt-3" onClick={()=>handlepurchase(course._id)}>Purchase</button>
+      <button className="bg-black px-4 py-2 text-white cursor-pointer mt-3" onClick={()=>handlepurchase(course._id,course.price)}>Purchase</button>
     </div>
   </div>
   
