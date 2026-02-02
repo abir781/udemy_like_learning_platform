@@ -77,7 +77,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 
-const Paymentform = ({courseprice}) => {
+const Paymentform = ({courseprice,id}) => {
   console.log(courseprice);
   const stripe = useStripe();
   const elements = useElements();
@@ -107,7 +107,19 @@ const Paymentform = ({courseprice}) => {
       const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, { payment_method: { card } });
 
       if (error) alert(error.message);
-      else if (paymentIntent?.status === 'succeeded') alert('Payment succeeded!');
+      else if (paymentIntent?.status === 'succeeded'){
+          await fetch('http://localhost:3000/payment-success', {
+                 method: 'POST',
+                 headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                 course_id: id,
+                 amount: courseprice,
+                paymentId: paymentIntent.id,
+    }),
+  })
+        alert('Payment succeeded!');
+
+      } 
     } catch (err) {
       console.error(err);
       alert('Something went wrong.');

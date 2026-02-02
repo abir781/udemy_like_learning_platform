@@ -11,13 +11,16 @@ const Payment = () => {
 
   const location = useLocation();
   const params = new URLSearchParams(location.search);
+  
   const price = params.get('price'); // price from URL query
+
+  const id = params.get('id');
   const courseprice = Number(price);
   console.log(courseprice);
     return (
        <Elements stripe={stripepromise}>
 
-              <Paymentform courseprice={courseprice} />
+              <Paymentform courseprice={courseprice} id={id} />
 
        </Elements>
     );
