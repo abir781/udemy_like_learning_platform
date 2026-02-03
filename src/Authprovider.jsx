@@ -11,7 +11,9 @@ const Authprovider = ({children}) => {
     const [useremail, setuseremail] = useState(null);
      const [role, setRole] = useState(null);
 
-    console.log(user?.email)
+     console.log(user);
+
+    // console.log(user?.email)
 
      console.log(useremail);
 
