@@ -49,7 +49,7 @@ const Navbar = () => {
         <Link 
         to="/coursecreate"
          className="text-white hover:text-emerald-300 font-semibold text-lg transition"
-        >Teacher Dashboard</Link>
+        >Course Create</Link>
       )}
      <li>
 
@@ -57,7 +57,7 @@ const Navbar = () => {
         <Link 
         to="/coursecreate"
          className="text-white hover:text-emerald-300 font-semibold text-lg transition"
-        >Admin Dashboard</Link>
+        >Course Create</Link>
       )}
       
       
