@@ -52,6 +52,13 @@ const Navbar = () => {
         >Teacher Dashboard</Link>
       )}
      <li>
+
+        {role === "admin" && (
+        <Link 
+        to="/coursecreate"
+         className="text-white hover:text-emerald-300 font-semibold text-lg transition"
+        >Admin Dashboard</Link>
+      )}
       
       
     </li>

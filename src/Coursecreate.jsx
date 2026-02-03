@@ -19,7 +19,7 @@ const Coursecreate = () => {
   const [rock,setrock]=useState(false);
 
   const sendCourseToServer = async () => {
-  const res = await fetch("http://localhost:3000/sendcourse", {
+  const res = await fetch("http://localhost:5000/sendcourse", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(coursedata)

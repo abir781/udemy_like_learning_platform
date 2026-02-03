@@ -14,7 +14,7 @@ const Courses = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/courses")
+    fetch("http://localhost:5000/courses")
       .then(res => res.json())
       .then(prodata => {
         setDatas(prodata);

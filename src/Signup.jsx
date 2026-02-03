@@ -21,7 +21,7 @@ const Signup = () => {
                 }).then(()=>{
                     console.log("it's working", res.user);
 
-                      fetch("http://localhost:3000/userrolewithdata", {
+                      fetch("http://localhost:5000/userrolewithdata", {
                        method: "POST",
                        headers: { "Content-Type": "application/json" },
                        body: JSON.stringify({ username: res.user.displayName, email:res.user.email }),

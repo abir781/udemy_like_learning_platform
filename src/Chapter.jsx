@@ -101,7 +101,7 @@ const Chapter = () => {
     const [ind, setind] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/course/${id}`)
+        fetch(`http://localhost:5000/course/${id}`)
           .then((res) => res.json())
           .then((data) => {
            
