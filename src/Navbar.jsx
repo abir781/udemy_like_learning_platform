@@ -1,14 +1,24 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { Authcontext } from "./Authcontext";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.config";
+import { IoMdArrowDropdownCircle } from "react-icons/io";
 
 
 const Navbar = () => {
   const {user, loading, setloading,role} = use(Authcontext);
 
+  const [down, setdown]= useState(false);
+
   console.log(role);
+
+  const trackers = () =>{
+
+    setdown(!down);
+    console.log(down);
+
+  }
 
   const makeLogout=()=>{
      setloading(true);
@@ -45,6 +55,16 @@ const Navbar = () => {
 
     </li>
 
+      <li>
+      <Link 
+        to="/applyasteacher" 
+        className="text-white hover:text-emerald-300 font-semibold text-lg transition"
+      >
+        Apply as a teacher
+      </Link>
+
+    </li>
+
      {role === "teacher" && (
         <Link 
         to="/coursecreate"
@@ -69,12 +89,39 @@ const Navbar = () => {
       {
         user ? <>
 
-          <button
-  onClick={makeLogout}
-  className="px-5 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition font-medium"
->
-  Logout
-</button>
+     <div className="flex gap-5 relative">
+
+  <button
+    onClick={makeLogout}
+    className="px-5 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition font-medium relative z-10"
+  >
+    Logout
+  </button>
+
+  <IoMdArrowDropdownCircle 
+    onClick={trackers} 
+    size={40} 
+    className="text-amber-600 relative z-10 "
+  />
+
+  <div className={`w-[180px] h-[50px] bg-sky-500 absolute z-0   right-0 duration-500 ${down ? "top-[50px]": "top-[-200px]"} flex justify-center items-center`}>
+
+      <Link 
+        to="/admindashboard"
+         className="text-white hover:text-emerald-300 font-semibold text-lg transition "
+        >Admin Dashboard</Link>
+
+       
+  </div>
+
+</div>
+
+
+   
+
+     
+
+   
         
         </>
               
@@ -99,11 +146,16 @@ const Navbar = () => {
         </Link>
       </div>
 
+
+
+
        
              
         
         
         </>
+
+        
         
 
       

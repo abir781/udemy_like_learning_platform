@@ -19,6 +19,7 @@ import Unauthorized from './Unauthorized.jsx';
 import Payment from './Payment.jsx';
 import Adminroute from './Adminroute.jsx';
 import Admindashboard from './Admindashboard.jsx';
+import TeacherApplication from './Teacherapplication.jsx';
 
 
 const router = createBrowserRouter([
@@ -75,10 +76,24 @@ const router = createBrowserRouter([
         </PrivateRoute>
 
       },
+
+        {
+        path: "/applyasteacher",
+        element: <TeacherApplication></TeacherApplication>
+
+         
+          
+       
+      },
       {
         path: "/admindashboard",
         element: <PrivateRoute>
-          <Admindashboard></Admindashboard>
+          <Adminroute>
+
+            <Admindashboard></Admindashboard>
+
+          </Adminroute>
+          
         </PrivateRoute>
       },
       {
