@@ -107,9 +107,9 @@ const Navbar = () => {
   <div className={`w-[180px] h-[50px] bg-sky-500 absolute z-0   right-0 duration-500 ${down ? "top-[50px]": "top-[-200px]"} flex justify-center items-center`}>
 
       <Link 
-        to="/admindashboard"
+        to="/admin"
          className="text-white hover:text-emerald-300 font-semibold text-lg transition "
-        >Admin Dashboard</Link>
+        >Admin</Link>
 
        
   </div>

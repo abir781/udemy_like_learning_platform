@@ -20,6 +20,8 @@ import Payment from './Payment.jsx';
 import Adminroute from './Adminroute.jsx';
 import Admindashboard from './Admindashboard.jsx';
 import TeacherApplication from './Teacherapplication.jsx';
+import AdminLayout from './AdminLayout.jsx';
+import Approval from './Approval.jsx';
 
 
 const router = createBrowserRouter([
@@ -85,17 +87,26 @@ const router = createBrowserRouter([
           
        
       },
-      {
-        path: "/admindashboard",
-        element: <PrivateRoute>
-          <Adminroute>
-
-            <Admindashboard></Admindashboard>
-
-          </Adminroute>
-          
-        </PrivateRoute>
-      },
+     {
+       path: "/admin",
+          element: (
+            <PrivateRoute>
+      <Adminroute>
+        <AdminLayout />
+      </Adminroute>
+    </PrivateRoute>
+  ),
+  children: [
+    {
+      index: true, // default /admin route
+      Component: Admindashboard
+    },
+    {
+      path: "approval", // relative path: /admin/approval
+      Component: Approval
+    }
+  ]
+},
       {
         path:"/unauthorized",
         Component: Unauthorized,
