@@ -28,7 +28,7 @@ const Approval = () => {
 
 
 
-  const givestatus =async(stats,id)=>{
+  const givestatus =async(stats,id,email)=>{
 
     console.log(stats);
 
@@ -40,7 +40,10 @@ const Approval = () => {
     const res = await fetch(`http://localhost:5000/admin/teacher/${id}/status`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: stats })
+      body: JSON.stringify({
+         status: stats,
+         email: email
+        })
     });
 
     const data = await res.json();
@@ -77,8 +80,8 @@ const Approval = () => {
               <td className="border p-2">{app.email}</td>
               <td className="border p-2">{app.status}</td>
               <td className="border p-2 space-x-2">
-                <button onClick={()=>givestatus("Approved", app._id)} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
-                <button onClick={()=>givestatus("Rejected", app._id)} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
+                <button onClick={()=>givestatus("Approved", app._id, app.email)} className="bg-green-500 text-white px-3 py-1 rounded">Approve</button>
+                <button onClick={()=>givestatus("Rejected", app._id, app.email)} className="bg-red-500 text-white px-3 py-1 rounded">Reject</button>
               </td>
             </tr>
           ))}

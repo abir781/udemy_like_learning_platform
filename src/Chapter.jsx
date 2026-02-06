@@ -99,6 +99,29 @@ const Chapter = () => {
     const [courses, setCourse] = useState(null);
     const [selectedchapter, setchapter] = useState(null);
     const [ind, setind] = useState(0);
+    const [titles, setTitles] = useState([]);
+const [isOpen, setIsOpen] = useState(false);
+const [selectedTitle, setSelectedTitle] = useState("");
+
+
+  const openModal = (title) => {
+  setSelectedTitle(title);
+  setIsOpen(true);
+};
+
+const closeModal = () => {
+  setIsOpen(false);
+  setSelectedTitle("");
+};
+
+
+
+    useEffect(() => {
+       fetch("http://localhost:5000/quizes")
+         .then(res => res.json())
+         .then(data => setTitles(data.map(q => q.title)))
+         .catch(err => console.error(err));
+     }, []);
 
     useEffect(() => {
         fetch(`http://localhost:5000/course/${id}`)
@@ -175,6 +198,32 @@ const Chapter = () => {
             </div>
 
             </div>
+
+              {isOpen && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+      <h3 className="text-xl font-bold mb-4">{selectedTitle}</h3>
+      <button
+        onClick={closeModal}
+        className="absolute top-2 right-2 text-green-600 hover:text-gray-900"
+      >
+       take quiz for better learning
+      </button>
+    </div>
+
+    <ul>
+  {titles.map((title, index) => (
+    <li 
+      key={index} 
+      onClick={() => openModal(title)}
+      className="p-2 border-b cursor-pointer hover:bg-gray-100"
+    >
+      {title}
+    </li>
+  ))}
+</ul>
+  </div>
+)}
 
             </div>
          
