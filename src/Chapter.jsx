@@ -259,17 +259,29 @@ const Chapter = () => {
         setSelectedTitle("");
     };
 
-    useEffect(() => {
-        fetch("http://localhost:5000/quizes")
-            .then(res => res.json())
-            .then(data => setTitles(data.map(q => q.title)))
-            .catch(err => console.error(err));
-    }, []);
+ useEffect(() => {
+
+    if(!courses) return; // courses na thakle run korbe na
+
+    fetch("http://localhost:5000/quizes")
+        .then(res => res.json())
+        .then(data => {
+            const filterdata = data.filter(
+                dats => dats.title === courses.title
+            );
+            console.log(filterdata);
+
+            setTitles(filterdata);
+        })
+        .catch(err => console.error(err));
+
+}, [courses]); 
 
     useEffect(() => {
         fetch(`http://localhost:5000/course/${id}`)
             .then((res) => res.json())
             .then((data) => {
+                console.log(data.title);
                 setCourse(data);
                 if(data?.chapters?.length){
                     const desiredchapter = data.chapters.find(cch => cch.id == cid);
@@ -351,13 +363,13 @@ const Chapter = () => {
                         <h3 className="text-xl font-bold mb-4">{selectedTitle}</h3>
 
                         <ul className="max-h-60 overflow-y-auto border-t border-b mt-2 mb-4">
-                            {titles.map((title, index) => (
+                            {titles.map((titleobj, index) => (
                                 <li 
                                     key={index} 
-                                    onClick={() => setSelectedTitle(title)}
+                                    onClick={() => setSelectedTitle(titleobj.title)}
                                     className="p-2 border-b cursor-pointer hover:bg-gray-100"
                                 >
-                                    {title}
+                                    {titleobj.title}
                                 </li>
                             ))}
                         </ul>
