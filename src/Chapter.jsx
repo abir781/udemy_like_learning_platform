@@ -265,6 +265,18 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
         setSelectedTitle("");
     };
 
+       const score = titles.reduce((total, quiz) => {
+        quiz.questions.forEach((q, qIndex) => {
+            const selected = selectedAnswers[qIndex];
+            if(selected !== undefined){
+                if(q.options[selected] === q.answer){
+                    total++;
+                }
+            }
+        });
+        return total;
+    }, 0);
+
     const marker=(recieveddata,optionindex,questionindex,answer)=>{
         
         
@@ -278,10 +290,10 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
 
         setSelectedOption(optionindex);
         
-        if(recieveddata==answer){
-            console.log("you got one number");
-            setcount(prev=>prev+1);
-        }
+        // if(recieveddata==answer){
+        //     console.log("you got one number");
+        //     setcount(prev=>prev+1);
+        // }
     }
 
  useEffect(() => {
@@ -426,7 +438,7 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
                         </ul>
 
                         <div>
-                         <p>{count}</p>
+                         <p>{score}</p>
                         </div>
 
                         <button
