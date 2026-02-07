@@ -249,6 +249,12 @@ const Chapter = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedTitle, setSelectedTitle] = useState("");
 
+    const [count, setcount] = useState(0);
+
+const [selectedOption, setSelectedOption] = useState(null);
+
+const [selectedAnswers, setSelectedAnswers] = useState({});
+
     const openModal = (title) => {
         setSelectedTitle(title);
         setIsOpen(true);
@@ -258,6 +264,25 @@ const Chapter = () => {
         setIsOpen(false);
         setSelectedTitle("");
     };
+
+    const marker=(recieveddata,optionindex,questionindex,answer)=>{
+        
+        
+        // console.log(recieveddata);
+        // console.log(answer);
+
+         setSelectedAnswers(prev => ({
+        ...prev,
+        [questionindex]: optionindex
+    }));
+
+        setSelectedOption(optionindex);
+        
+        if(recieveddata==answer){
+            console.log("you got one number");
+            setcount(prev=>prev+1);
+        }
+    }
 
  useEffect(() => {
 
@@ -359,20 +384,50 @@ const Chapter = () => {
             {/* Modal - সঠিক structure এ */}
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-transparent bg-opacity-50 z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-[6/12] h-[50%] relative">
                         <h3 className="text-xl font-bold mb-4">{selectedTitle}</h3>
 
-                        <ul className="max-h-60 overflow-y-auto border-t border-b mt-2 mb-4">
+                        <ul className="max-h-80 overflow-y-auto border-t border-b mt-2 mb-4">
                             {titles.map((titleobj, index) => (
-                                <li 
-                                    key={index} 
-                                    onClick={() => setSelectedTitle(titleobj.title)}
-                                    className="p-2 border-b cursor-pointer hover:bg-gray-100"
-                                >
-                                    {titleobj.title}
-                                </li>
+                               
+
+                                <div className='h-full '>
+
+                                    <p>{titleobj.title}</p>
+
+                                    {
+                                        titleobj.questions.map((jon,isr)=>{
+                                            return(
+                                                <div>
+                                                    <p>{jon.question}</p>
+                                                    
+                                                    {
+                                                        jon.options.map((singleoption,inde)=>{
+                                                            return(
+                                                                <div className='flex gap-3 mb-2'>
+                                                                    <button onClick={()=>marker(singleoption,inde,isr,jon.answer)}  className={`px-3 py-1 rounded-full text-white 
+  ${selectedOption === inde ? 'bg-orange-600' : 'bg-green-500'}`}>{inde+1}</button>
+                                                                    <p>{singleoption}</p>
+                                                                    
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            )
+                                        })
+                                    }
+
+
+
+
+                                </div>
                             ))}
                         </ul>
+
+                        <div>
+                         <p>{count}</p>
+                        </div>
 
                         <button
                             onClick={() => alert(`Start quiz: ${selectedTitle}`)}
