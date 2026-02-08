@@ -239,6 +239,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import Swal from "sweetalert2";
 
 const Chapter = () => {
     const { id, cid } = useParams();
@@ -249,11 +250,18 @@ const Chapter = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedTitle, setSelectedTitle] = useState("");
 
+   
+
+    
+    
+
     const [count, setcount] = useState(0);
 
 const [selectedOption, setSelectedOption] = useState(null);
 
 const [selectedAnswers, setSelectedAnswers] = useState({});
+
+ const countz = Object.keys(selectedAnswers).length;
 
     const openModal = (title) => {
         setSelectedTitle(title);
@@ -266,7 +274,13 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
     };
 
        const score = titles.reduce((total, quiz) => {
+
+       
+        
+        
         quiz.questions.forEach((q, qIndex) => {
+            
+            
             const selected = selectedAnswers[qIndex];
             if(selected !== undefined){
                 if(q.options[selected] === q.answer){
@@ -283,17 +297,45 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
         // console.log(recieveddata);
         // console.log(answer);
 
+        // console.log(optionindex,questionindex);
+
+       
+
          setSelectedAnswers(prev => ({
         ...prev,
         [questionindex]: optionindex
     }));
 
-        setSelectedOption(optionindex);
+    
+
+   
+
+        // setSelectedOption(optionindex);
         
         // if(recieveddata==answer){
         //     console.log("you got one number");
         //     setcount(prev=>prev+1);
         // }
+    }
+
+    const showscore=()=>{
+
+        if(countz==5){
+
+           Swal.fire({
+  title: "Good job!",
+  text: `Your score is ${score}`,
+  icon: "success"
+});
+
+        }
+
+        
+     
+        
+
+     
+        
     }
 
  useEffect(() => {
@@ -418,7 +460,7 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
                                                             return(
                                                                 <div className='flex gap-3 mb-2'>
                                                                     <button onClick={()=>marker(singleoption,inde,isr,jon.answer)}  className={`px-3 py-1 rounded-full text-white 
-  ${selectedOption === inde ? 'bg-orange-600' : 'bg-green-500'}`}>{inde+1}</button>
+  ${selectedAnswers[isr] === inde ? 'bg-orange-600' : 'bg-green-500'}`}>{inde+1}</button>
                                                                     <p>{singleoption}</p>
                                                                     
                                                                 </div>
@@ -437,15 +479,13 @@ const [selectedAnswers, setSelectedAnswers] = useState({});
                             ))}
                         </ul>
 
-                        <div>
-                         <p>{score}</p>
-                        </div>
+                      
 
                         <button
-                            onClick={() => alert(`Start quiz: ${selectedTitle}`)}
+                            onClick={showscore}
                             className="mt-2 w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
                         >
-                            Take Quiz for Better Learning
+                           Check Your Score
                         </button>
 
                         <button
