@@ -22,6 +22,7 @@ import Admindashboard from './Admindashboard.jsx';
 import TeacherApplication from './Teacherapplication.jsx';
 import AdminLayout from './AdminLayout.jsx';
 import Approval from './Approval.jsx';
+import Announce from './Announce.jsx';
 
 
 const router = createBrowserRouter([
@@ -68,6 +69,14 @@ const router = createBrowserRouter([
           
         </PrivateRoute>
 
+      },
+      {
+        path:"/announce",
+        element: <PrivateRoute>
+          <TeacherRoute>
+            <Announce></Announce>
+          </TeacherRoute>
+        </PrivateRoute>
       },
       {
         path: "/admin/coursecreate",

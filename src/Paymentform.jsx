@@ -119,6 +119,8 @@ const Paymentform = ({ courseprice, id, course }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+  console.log(course.title);
+
   const handlesubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) return;
@@ -133,7 +135,10 @@ const Paymentform = ({ courseprice, id, course }) => {
       const { clientSecret } = await fetch('http://localhost:5000/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount: courseprice * 100 }), // Stripe wants cents
+        body: JSON.stringify({ amount: courseprice * 100,
+          course_id: course._id,
+          useremail: useremail,
+         }), // Stripe wants cents
       }).then((r) => r.json());
 
       // 2️⃣ Confirm payment with Stripe
@@ -151,6 +156,8 @@ const Paymentform = ({ courseprice, id, course }) => {
             amount: courseprice,
             paymentId: paymentIntent.id,
             useremail: useremail,
+            course: course.title,
+            
           }),
         });
 

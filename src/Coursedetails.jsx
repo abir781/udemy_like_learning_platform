@@ -24,7 +24,7 @@ const Coursedetails = () => {
 
   // Handle purchase: navigate to payment page with full course info
   const handlepurchase = () => {
-    if (!useremail) return alert("Login first");
+    // if (!useremail) return alert("Login first");
     navigate(`/payment/${course._id}`, { state: { course } });
   };
 
@@ -57,12 +57,12 @@ const Coursedetails = () => {
       <div className="border rounded-lg p-4 space-y-4">
         <p className="text-2xl font-bold text-center">${course.price}</p>
 
-        <button
+        {/* <button
           className="w-full py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600"
           onClick={handlepurchase}
         >
           Purchase / Enroll
-        </button>
+        </button> */}
 
         <div>
           <h3 className="font-semibold mb-2">Course Content</h3>
