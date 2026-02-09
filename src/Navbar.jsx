@@ -11,12 +11,12 @@ const Navbar = () => {
 
   const [down, setdown]= useState(false);
 
-  console.log(role);
+  // console.log(role);
 
   const trackers = () =>{
 
     setdown(!down);
-    console.log(down);
+    // console.log(down);
 
   }
 
@@ -24,7 +24,7 @@ const Navbar = () => {
      setloading(true);
     return signOut(auth);
   }
-  console.log(user);
+  // console.log(user);
   return (
     <nav className="bg-[#1a3631] shadow-md px-20 py-4 flex justify-between items-center">
       {/* Logo / Brand */}

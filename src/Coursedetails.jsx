@@ -6,7 +6,7 @@ import { Link, useNavigate, useParams } from "react-router";
 const Coursedetails = () => {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
-  const { useremail } = useContext(Authcontext);
+  
   const navigate = useNavigate();
   
 
@@ -14,7 +14,13 @@ const Coursedetails = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/course/${id}`)
       .then((res) => res.json())
-      .then((data) => setCourse(data))
+      .then((data) => {
+        
+        setCourse(data);
+        
+        
+
+      })
       .catch((err) => console.error(err));
   }, [id]);
 

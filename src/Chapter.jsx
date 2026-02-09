@@ -556,6 +556,8 @@ const Chapter = () => {
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
 
+  const [announcements,setannouncements] = useState([]);
+
   const [modal,setmodal]=useState(false);
 
   const countz = Object.keys(selectedAnswers).length;
@@ -565,6 +567,13 @@ const Chapter = () => {
     fetch(`http://localhost:5000/course/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data?.email);
+        fetch(`http://localhost:5000/announces?email=${data?.email}`)
+    .then(res => res.json())
+    .then(announces => {
+      console.log(announces);
+      setannouncements(announces);
+    });
         setCourse(data);
         if (data?.chapters?.length) {
           const desiredchapter = data.chapters.find((cch) => cch.id == cid);
@@ -576,6 +585,8 @@ const Chapter = () => {
             setind(0);
           }
         }
+
+       
       });
   }, [id, cid]);
 
@@ -726,6 +737,19 @@ const Chapter = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="mt-40 ml-20">
+       {
+        announcements?.map((abc)=>{
+          return(
+            <div>
+            <p>{abc.announcement} and this is commanded by your course teacher {abc.email}</p>
+          </div>
+
+          )
+          
+        })
+       }
       </div>
 
       {/* Modal */}

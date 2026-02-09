@@ -1,12 +1,48 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Authcontext } from './Authcontext';
 
 const Announce = () => {
+
+    const { user } = useContext(Authcontext);
+    // console.log(user);
   const [text, setText] = useState("");
 
-  const handleSubmit = (e) => {
+ const restrictedinput = (e) => {
+  const value = e.target.value;
+  if (value.length <= 170) {
+    setText(value);
+  }
+};
+
+  const handleSubmit =  async(e) => {
     e.preventDefault();
     alert(`You entered: ${text}`);
-    setText("");
+    
+    
+
+    
+
+    try {
+    const response = await fetch("http://localhost:5000/annoucements", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text,
+        email: user.email,
+
+      }),
+    });
+
+    const result = await response.json();
+    console.log("Server response:", result);
+  } catch (err) {
+    console.error("Error:", err);
+  }
+
+  setText("");
+    
   };
 
   return (
@@ -28,7 +64,7 @@ const Announce = () => {
       <form onSubmit={handleSubmit}>
         <textarea
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={restrictedinput}
           placeholder="Enter your text here..."
           rows={6}
           cols={50}

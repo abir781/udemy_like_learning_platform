@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Courseinfoform from './Courseinfoform';
 import Learningform from './Learningform';
 import Chaptermaker from './Chaptermaker';
 import Lessonbuilder from './Lessonbuilder';
+import { Authcontext } from './Authcontext';
 
 const Coursecreate = () => {
+  const {user} = useContext(Authcontext);
+  console.log(user.email);
   const [step, setstep] = useState(1);
   const [coursedata, setcoursedata] = useState({
     id: crypto.randomUUID(),
@@ -22,7 +25,10 @@ const Coursecreate = () => {
   const res = await fetch("http://localhost:5000/sendcourse", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(coursedata)
+      body: JSON.stringify({
+    ...coursedata,
+    email: user.email
+  })
   });
 
   const data = await res.json();
