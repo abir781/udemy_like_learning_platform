@@ -79,6 +79,14 @@ const Navbar = () => {
          className="text-white hover:text-emerald-300 font-semibold text-lg transition"
         >Course Create</Link>
       )}
+
+      
+        {role === "teacher" && (
+        <Link 
+        to="/announce"
+         className="text-white hover:text-emerald-300 font-semibold text-lg transition"
+        >Announce</Link>
+      )}
       
       
     </li>
